@@ -1,0 +1,14 @@
+<table class="w-full border-collapse">
+  <thead>
+  <tr>
+    <th class="px-4 py-2 border border-gray-400">Выберите</th>
+    <th *ngFor="let header of headers" class="px-4 py-2 border border-gray-500">{{header}}</th>
+  </tr>
+  </thead>
+  <tbody class="text-center">
+  <tr *ngFor="let row of data">
+    <td class="px-2 py-2  border border-gray-400"><input type="checkbox" class="checkbox"></td>
+    <td *ngFor="let key of headers" class="px-4 py-2 border border-gray-400">{{row[key]}}</td>
+  </tr>
+  </tbody>
+</table>

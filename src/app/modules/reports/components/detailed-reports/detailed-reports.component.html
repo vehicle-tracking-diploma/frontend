@@ -1,0 +1,396 @@
+<div class="sm:px-6 w-full">
+  <div class="px-4 md:px-10 py-4 md:py-7">
+    <div class="flex items-center justify-between">
+      <p class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Детальные отчеты</p>
+    </div>
+  </div>
+  <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+    <div class="sm:flex items-center justify-between">
+      <button onclick="popuphandler(true)" class="mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-my-blue hover:bg-my-blue-hover focus:outline-none rounded">
+        <p class="text-sm font-medium leading-none text-white">Выдать отчет</p>
+      </button>
+      <div class="py-3 px-4 flex items-center text-sm font-medium leading-none text-gray-600 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded">
+        <p>Формат:</p>
+        <select class="focus:outline-none bg-transparent ml-1">
+          <option class="text-sm text-my-blue">HTML</option>
+          <option class="text-sm text-my-blue">CSV</option>
+          <option class="text-sm text-my-blue">XML</option>
+          <option class="text-sm text-my-blue">XLS</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-7 overflow-x-auto">
+      <table class="w-full whitespace-nowrap">
+        <tbody>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input checked type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">События</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Отчет по движению</p>
+            </div>
+          </td>
+          <td>
+            <div class="relative px-5 pt-2">
+              <button class="focus:outline-none" (click)="dropDownList===1?dropDownList=0:dropDownList=1">
+                <svg class="dropbtn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10.8332C4.62691 10.8332 5 10.4601 5 9.99984C5 9.5396 4.62691 9.1665 4.16667 9.1665C3.70643 9.1665 3.33334 9.5396 3.33334 9.99984C3.33334 10.4601 3.70643 10.8332 4.16667 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M10 10.8332C10.4602 10.8332 10.8333 10.4601 10.8333 9.99984C10.8333 9.5396 10.4602 9.1665 10 9.1665C9.53976 9.1665 9.16666 9.5396 9.16666 9.99984C9.16666 10.4601 9.53976 10.8332 10 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M15.8333 10.8332C16.2936 10.8332 16.6667 10.4601 16.6667 9.99984C16.6667 9.5396 16.2936 9.1665 15.8333 9.1665C15.3731 9.1665 15 9.5396 15 9.99984C15 10.4601 15.3731 10.8332 15.8333 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+              <div *ngIf="dropDownList===1" class="bg-white shadow w-max absolute z-30 right-0 mr-6">
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>По умолчанию</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вкл./выкл.зажигания</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Движение/остановка</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on Engine Start/Stop Status Codes</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on 0 Minute Minimum Stop</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 5 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 10 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 20 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on 30 Minute Minimum Stop</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Время в движении</p>
+            </div>
+          </td>
+          <td>
+            <div class="relative px-5 pt-2">
+              <button class="focus:outline-none" (click)="dropDownList===2?dropDownList=0:dropDownList=2">
+                <svg class="dropbtn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10.8332C4.62691 10.8332 5 10.4601 5 9.99984C5 9.5396 4.62691 9.1665 4.16667 9.1665C3.70643 9.1665 3.33334 9.5396 3.33334 9.99984C3.33334 10.4601 3.70643 10.8332 4.16667 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M10 10.8332C10.4602 10.8332 10.8333 10.4601 10.8333 9.99984C10.8333 9.5396 10.4602 9.1665 10 9.1665C9.53976 9.1665 9.16666 9.5396 9.16666 9.99984C9.16666 10.4601 9.53976 10.8332 10 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M15.8333 10.8332C16.2936 10.8332 16.6667 10.4601 16.6667 9.99984C16.6667 9.5396 16.2936 9.1665 15.8333 9.1665C15.3731 9.1665 15 9.5396 15 9.99984C15 10.4601 15.3731 10.8332 15.8333 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+              <div *ngIf="dropDownList===2" class="bg-white shadow w-max absolute z-30 right-0 mr-6">
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>По умолчанию</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вкл./выкл.зажигания</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Движение/остановка</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on Engine Start/Stop Status Codes</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on 0 Minute Minimum Stop</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 5 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 10 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Остановки больше 20 мин.</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Based on 30 Minute Minimum Stop</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Движение в зонах</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Вход/выход в зоны</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Geozone Departure Report</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Включение зажигания</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Данные от трекера</p>
+            </div>
+          </td>
+          <td>
+            <div class="relative px-5 pt-2">
+              <button class="focus:outline-none" (click)="dropDownList===3?dropDownList=0:dropDownList=3">
+                <svg class="dropbtn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10.8332C4.62691 10.8332 5 10.4601 5 9.99984C5 9.5396 4.62691 9.1665 4.16667 9.1665C3.70643 9.1665 3.33334 9.5396 3.33334 9.99984C3.33334 10.4601 3.70643 10.8332 4.16667 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M10 10.8332C10.4602 10.8332 10.8333 10.4601 10.8333 9.99984C10.8333 9.5396 10.4602 9.1665 10 9.1665C9.53976 9.1665 9.16666 9.5396 9.16666 9.99984C9.16666 10.4601 9.53976 10.8332 10 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M15.8333 10.8332C16.2936 10.8332 16.6667 10.4601 16.6667 9.99984C16.6667 9.5396 16.2936 9.1665 15.8333 9.1665C15.3731 9.1665 15 9.5396 15 9.99984C15 10.4601 15.3731 10.8332 15.8333 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+              <div *ngIf="dropDownList===3" class="bg-white shadow w-max absolute z-30 right-0 mr-6">
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #0</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #1</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #2</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #3</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #4</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #5</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #6</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>Вход #7</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Received Event Counts by Day</p>
+            </div>
+          </td>
+          <td>
+            <div class="relative px-5 pt-2">
+              <button class="focus:outline-none" (click)="dropDownList===4?dropDownList=0:dropDownList=4">
+                <svg class="dropbtn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10.8332C4.62691 10.8332 5 10.4601 5 9.99984C5 9.5396 4.62691 9.1665 4.16667 9.1665C3.70643 9.1665 3.33334 9.5396 3.33334 9.99984C3.33334 10.4601 3.70643 10.8332 4.16667 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M10 10.8332C10.4602 10.8332 10.8333 10.4601 10.8333 9.99984C10.8333 9.5396 10.4602 9.1665 10 9.1665C9.53976 9.1665 9.16666 9.5396 9.16666 9.99984C9.16666 10.4601 9.53976 10.8332 10 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M15.8333 10.8332C16.2936 10.8332 16.6667 10.4601 16.6667 9.99984C16.6667 9.5396 16.2936 9.1665 15.8333 9.1665C15.3731 9.1665 15 9.5396 15 9.99984C15 10.4601 15.3731 10.8332 15.8333 10.8332Z" stroke="#9CA3AF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+              <div *ngIf="dropDownList===4" class="bg-white shadow w-max absolute z-30 right-0 mr-6">
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>All</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>'Initialization'</p>
+                </div>
+                <div class="text-xs w-full hover:bg-my-blue py-4 px-4 cursor-pointer hover:text-white">
+                  <p>'In-Motion'</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Idle</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Excessive Idle</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">Сообщения водителя</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">OBD Light Truck Event Detail</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="h-3"></tr>
+        <tr class="h-16 border border-gray-100 rounded">
+          <td>
+            <div class="ml-5">
+              <div class="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+                <input type="radio" name="radio" class="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none" />
+                <div class="check-icon hidden border-4 border-my-blue rounded-full w-full h-full z-1"></div>
+              </div>
+            </div>
+          </td>
+          <td class="">
+            <div class="flex items-center pl-5">
+              <p class="text-base font-medium leading-none text-gray-700 mr-2">События (все сообщения)</p>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<style>
+  .checkbox:checked + .check-icon {
+    display: flex;
+  }
+</style>

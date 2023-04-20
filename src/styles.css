@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~ol/ol.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+
+  color: var(--text-color);
+  margin: 0;
+  --header-color: #D1DFB7;
+  --sidebar-color: #FAE6BE;
+  --text-color: black;
+}
+
+.sidebar{
+  flex: 0 0 auto; /* occupies exactly as much width as it needs */
+}
+
+.map {
+  flex: 1 0 auto; /* occupies remaining width space */
+}
