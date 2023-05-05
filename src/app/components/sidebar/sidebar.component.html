@@ -45,6 +45,7 @@
 
         <div class="flex flex-col my-2 gap-2" *ngIf="this.isClickedMap">
           <a
+            routerLink="/map"
             class="text-xs font-medium ml-8 p-2 hover:bg-gray-700 hover:text-gray-300 rounded cursor-pointer"
           >
             <span>Последнее местоположение</span>
@@ -86,16 +87,19 @@
 
         <div class="flex flex-col my-2 gap-2" *ngIf="this.isClickedReport">
           <a
+            routerLink="/detailed-reports"
             class="text-xs font-medium p-2 hover:bg-gray-700 hover:text-gray-300 rounded cursor-pointer"
           >
             <span>Детальные отчеты</span>
           </a>
           <a
+            routerLink="/tracker-reports"
             class="text-xs font-medium p-2 hover:bg-gray-700 hover:text-gray-300 rounded cursor-pointer"
           >
             <span>Группа трекеров</span>
           </a>
           <a
+            routerLink="/final-reports"
             class="text-xs font-medium p-2 hover:bg-gray-700 hover:text-gray-300 rounded cursor-pointer"
           >
             <span>Итоговые отчеты</span>
@@ -131,6 +135,7 @@
             <span>Администрирование группы</span>
           </a>
           <a
+            routerLink="/usermgnt"
             class="text-xs font-medium ml-8 p-2 hover:bg-gray-700 hover:text-gray-300 rounded cursor-pointer"
           >
             <span>Управления пользователями</span>
